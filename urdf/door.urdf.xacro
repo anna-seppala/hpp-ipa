@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="door">
+
+
+    <xacro:macro name="door" params="prefix">
+
+        <link name="${prefix}door_frame">
+
+
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.1"/>
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://hpp-dlr-ipa/meshes/Door_m.STL"/>
+                </geometry>
+                <material name="greyish">
+                    <color rgba="0.8 0.8 0.8 1"/>
+                </material>
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://hpp-dlr-ipa/meshes/Door_m.STL"/>
+                </geometry>
+            </collision>
+
+        </link>
+
+    </xacro:macro>
+
+
+    <xacro:door prefix=""/>
+
+</robot>

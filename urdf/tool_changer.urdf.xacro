@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="tool_changer">
+
+
+    <xacro:macro name="tool_changer" params="parent prefix">
+
+
+        <!-- mount the tool to the robot -->
+        <joint name="${prefix}tool_changer_joint" type="fixed" >
+            <origin xyz="0 0 0.0742" rpy="0 0 ${pi-pi/8}" />
+            <parent link="${parent}" />
+            <child link="${prefix}tool_changer_flange" />
+        </joint>
+
+
+        <link name="${prefix}tool_changer_flange">
+
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.1"/>
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+
+            <visual>
+                <origin xyz="0 0 -0.0742" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://hpp-dlr-ipa/meshes/Tools_to_Tool_Changer_m.STL"/>
+                </geometry>
+                <material name="greyish">
+                    <color rgba="0.8 0.8 0.8 1"/>
+                </material>
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 -0.0742" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://hpp-dlr-ipa/meshes/Tools_to_Tool_Changer_m.STL"/>
+                </geometry>
+            </collision>
+
+        </link>
+
+    </xacro:macro>
+</robot>

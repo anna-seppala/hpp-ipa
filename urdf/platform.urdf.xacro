@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="platform">
+
+
+    <xacro:include filename="tool_screwdriver.urdf.xacro" />
+    <xacro:include filename="tool_gripper.urdf.xacro" />
+
+    <xacro:macro name="platform" params="prefix parent *origin">
+
+        <joint name="${prefix}platform_joint" type="fixed" >
+            <insert_block name="origin" />
+            <parent link="${parent}" />
+            <child link="${prefix}platform_base" />
+        </joint>
+
+        <link name="${prefix}platform_base">
+
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.1"/>
+                <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+            </inertial>
+
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://hpp-dlr-ipa/meshes/Mobile_Platform_Shell_m.STL"/>
+                </geometry>
+                <material name="greyish">
+                    <color rgba="0.8 0.8 0.8 1"/>
+                </material>
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://hpp-dlr-ipa/meshes/Mobile_Platform_Shell_m.STL"/>
+                </geometry>
+            </collision>
+
+        </link>
+
+        <joint name="${prefix}platform_flange_joint" type="fixed" >
+            <origin xyz="0.795 0.405 0.917" rpy="0 0 0" />
+            <parent link="${prefix}platform_base" />
+            <child link="${prefix}platform_flange" />
+        </joint>
+
+        <link name="${prefix}platform_flange"/>
+
+
+        <!-- fixture for gripper -->
+        <joint name="${prefix}fixture_gripper_joint" type="fixed" >
+            <origin xyz="0.2348 ${0.59435+0.0345} ${1.03763+0.0345}" rpy="${pi+pi/4} 0 ${pi}" />
+            <parent link="${prefix}platform_base" />
+            <child link="${prefix}fixture_gripper" />
+        </joint>
+
+        <link name="${prefix}fixture_gripper"/>
+
+        <!--xacro:gripper prefix="" parent="${prefix}fixture_gripper"/-->
+
+
+        <!-- fixture for screwer -->
+        <joint name="${prefix}fixture_screwer_joint" type="fixed" >
+            <origin xyz="1.08063 0.0252 1.04029" rpy="${pi+pi/4} 0 ${-pi/2}" />
+            <parent link="${prefix}platform_base" />
+            <child link="${prefix}fixture_screwer" />
+        </joint>
+
+        <link name="${prefix}fixture_screwer"/>
+
+        <!--xacro:screwdriver prefix="" parent="${prefix}fixture_screwer"/-->
+
+    </xacro:macro>
+
+</robot>

@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<robot name = "door">
+  <handle name="door_handle" clearance="0.05">
+    <!-- position: translation and quaternion-->
+   <position>0.60737 -0.15346 0.29873 0.7071 0 0 0.7071</position>
+    <!-- the position represents the position of the handle relatively to the following link -->
+    <link name="door_frame" />
+  </handle>
+  <handle name="window_upper_left_corner" clearance="0.05">
+    <!-- position: translation and quaternion-->
+    <position>-0.1071741 0.1238518 0.7886082 0.6903 -0.1530 0.1530 0.6903</position>
+    <!-- the position represents the position of the handle relatively to the following link -->
+    <link name="door_frame" />
+  </handle>
+  <handle name="window_lower_left_corner" clearance="0.05">
+    <!-- position: translation and quaternion-->
+    <position>-0.140033 -0.0535454 0.4434104 0.6964 -0.1228 0.1228 0.6964</position>
+    <!-- the position represents the position of the handle relatively to the following link -->
+    <link name="door_frame" />
+  </handle>
+  <handle name="window_lower_right_corner" clearance="0.05">
+    <!-- position: translation and quaternion-->
+    <position>0.76915 -0.0615 0.46843 0.6964 -0.1228 0.1228 0.6964</position>
+    <!-- the position represents the position of the handle relatively to the following link -->
+    <link name="door_frame" />
+  </handle>
+  <handle name="door_lower_left_corner" clearance="0.05">
+    <!-- position: translation and quaternion-->
+    <position>-0.2556075 -0.0840752 -0.2158573 0.7039 0.0677 -0.0677 0.7039</position>
+    <!-- the position represents the position of the handle relatively to the following link -->
+    <link name="door_frame" />
+  </handle>
+  <handle name="door_lower_right_corner" clearance="0.05">
+    <!-- position: translation and quaternion-->
+    <position>0.3332 -0.07975 -0.20804 0.7039 0.0677 -0.0677 0.7039</position>
+    <!-- the position represents the position of the handle relatively to the following link -->
+    <link name="door_frame" />
+  </handle>
+</robot>

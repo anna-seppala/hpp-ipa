@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="ur10_empty" >
+
+  <xacro:include filename="ipa325_ur10.urdf.xacro" />
+  <xacro:include filename="platform.urdf.xacro" />
+  
+  
+  <!-- setup empty world -->
+  <link name="world"/>
+
+  <!-- platform -->
+  <xacro:platform prefix="" parent="world">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:platform>
+
+  <!-- include robot -->
+  <xacro:ipa325_ur10 prefix="ipa_" parent="platform_flange">
+    <origin xyz="0 0 0" rpy="0 0 ${pi/4}"/>
+  </xacro:ipa325_ur10>
+
+</robot>

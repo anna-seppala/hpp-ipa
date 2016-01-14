@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="ur10_screwdriver">
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+
+<gripper name="screwdriver" clearance="0.05">
+  <!-- position translation and quaternion -->
+  <!--position>-0.00303106 0.0830597 0.1837521 0.6533 0.2706 -0.2706 0.6533</position-->
+  <position>0 0.082 0.1837521 0.6533 0.2706 -0.2706 0.6533</position>
+  <!-- the position represents the position of the gripper relatively to the following link -->
+  <link name="ipa_tool_changer_flange" /> 
+  <!-- Collision can be disabled between the listed link and any handle -->
+  <!-- <disable_collision link="link_name" />
+  <disable_collision link="link_name2" /> -->
+</gripper>
+
+    <disable_collisions link1="ipa_base_link" link2="ipa_shoulder_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_base_link" link2="ipa_upper_arm_link" reason="Never" />
+    <disable_collisions link1="ipa_base_link" link2="ipa_wrist_1_link" reason="Never" />
+    <disable_collisions link1="ipa_base_link" link2="platform_base" reason="Adjacent" />
+    <disable_collisions link1="ipa_ee_link" link2="ipa_tool_changer_flange" reason="Adjacent" />
+    <disable_collisions link1="ipa_ee_link" link2="ipa_wrist_1_link" reason="Never" />
+    <disable_collisions link1="ipa_ee_link" link2="ipa_wrist_2_link" reason="Never" />
+    <disable_collisions link1="ipa_ee_link" link2="ipa_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_ee_link" link2="screwdriver_flange" reason="Never" />
+    <disable_collisions link1="ipa_forearm_link" link2="ipa_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_forearm_link" link2="ipa_wrist_1_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_shoulder_link" link2="ipa_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_shoulder_link" link2="ipa_wrist_1_link" reason="Never" />
+    <disable_collisions link1="ipa_shoulder_link" link2="ipa_wrist_2_link" reason="Never" />
+    <disable_collisions link1="ipa_shoulder_link" link2="platform_base" reason="Never" />
+    <disable_collisions link1="ipa_tool_changer_flange" link2="ipa_wrist_1_link" reason="Never" />
+    <disable_collisions link1="ipa_tool_changer_flange" link2="ipa_wrist_2_link" reason="Never" />
+    <disable_collisions link1="ipa_tool_changer_flange" link2="ipa_wrist_3_link" reason="Never" />
+    <disable_collisions link1="ipa_tool_changer_flange" link2="screwdriver_flange" reason="Adjacent" />
+    <disable_collisions link1="ipa_wrist_1_link" link2="ipa_wrist_2_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_wrist_1_link" link2="ipa_wrist_3_link" reason="Never" />
+    <disable_collisions link1="ipa_wrist_1_link" link2="screwdriver_flange" reason="Never" />
+    <disable_collisions link1="ipa_wrist_2_link" link2="ipa_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="ipa_wrist_2_link" link2="screwdriver_flange" reason="Never" />
+    <disable_collisions link1="ipa_wrist_3_link" link2="screwdriver_flange" reason="Never" />
+</robot>

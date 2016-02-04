@@ -13,15 +13,14 @@ class Door (object):
    urdfSuffix = ""
    srdfSuffix = ""
 
-## create class for box object (uncomment if
-## introducing obstacles)
-#class Box (object):
-#  rootJointType = 'anchor'
-#  packageName = 'hpp_tutorial'
-#  meshPackageName = 'hpp_tutorial'
-#  urdfName = 'box'
-#  urdfSuffix = ""
-#  srdfSuffix = ""
+## create class for box object 
+class Box (object):
+  rootJointType = 'anchor'
+  packageName = 'hpp_tutorial'
+  meshPackageName = 'hpp_tutorial'
+  urdfName = 'box'
+  urdfSuffix = ""
+  srdfSuffix = ""
 
 robot = Robot ('dlr-box', 'dlr')
 ## root joint position change for robot:
@@ -50,15 +49,14 @@ robot.client.basic.robot.setDimensionExtraConfigSpace (4)
 robot.client.basic.robot.setExtraConfigSpaceBounds ([0,1, 0,1, 0,1, 0,1])
 
 ## load box-shaped objects as obstacles into the problem.
-## uncomment the following code and the class definition 'class Box' from before.
-#r.loadObjectModel (Box, 'box1')
-#robot.client.manipulation.robot.setRootJointPosition('box1', [0.3,1,0.9,1,0,0,0])
-#r.loadObjectModel (Box, 'box2')
-#robot.client.manipulation.robot.setRootJointPosition('box2', [0.6,1.05,1.0,1,0,0,0])
-#r.loadObjectModel (Box, 'box3')
-#robot.client.manipulation.robot.setRootJointPosition('box3', [1.1,1,0.9,1,0,0,0])
-#r.loadObjectModel (Box, 'box4')
-#robot.client.manipulation.robot.setRootJointPosition('box4', [0.9,1.05,1.2,1,0,0,0])
+r.loadObjectModel (Box, 'box1')
+robot.client.manipulation.robot.setRootJointPosition('box1', [0.3,1,0.9,1,0,0,0])
+r.loadObjectModel (Box, 'box2')
+robot.client.manipulation.robot.setRootJointPosition('box2', [0.6,1.05,1.0,1,0,0,0])
+r.loadObjectModel (Box, 'box3')
+robot.client.manipulation.robot.setRootJointPosition('box3', [1.1,1,0.9,1,0,0,0])
+r.loadObjectModel (Box, 'box4')
+robot.client.manipulation.robot.setRootJointPosition('box4', [0.9,1.05,1.2,1,0,0,0])
 
 ## create the constraint graph
 graph = ConstraintGraph (robot, 'graph')

@@ -24,7 +24,7 @@
             <visual>
                 <origin xyz="0 0 -0.0742" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://hpp-dlr-ipa/meshes/Tools_to_Tool_Changer_m.STL"/>
+                    <mesh filename="package://hpp-ipa/meshes/Tools_to_Tool_Changer_m.STL"/>
                 </geometry>
                 <material name="greyish">
                     <color rgba="0.8 0.8 0.8 1"/>
@@ -34,7 +34,7 @@
             <collision>
                 <origin xyz="0 0 -0.0742" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://hpp-dlr-ipa/meshes/Tools_to_Tool_Changer_m.STL"/>
+                    <mesh filename="package://hpp-ipa/meshes/Tools_to_Tool_Changer_m.STL"/>
                 </geometry>
             </collision>
 

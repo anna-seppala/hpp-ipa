@@ -1,18 +1,18 @@
 # Copyright (c) 2015 CNRS
 # Author: Anna Seppala
 #
-# This file is part of hpp-dlr-ipa.
-# hpp-dlr-ipa is free software: you can redistribute it
+# This file is part of hpp-ipa.
+# hpp-ipa is free software: you can redistribute it
 # and/or modify it under the terms of the GNU Lesser General Public
 # License as published by the Free Software Foundation, either version
 # 3 of the License, or (at your option) any later version.
 #
-# hpp-dlr-ipa is distributed in the hope that it will be
+# hpp-ipa is distributed in the hope that it will be
 # useful, but WITHOUT ANY WARRANTY; without even the implied warranty
 # of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # General Lesser Public License for more details.  You should have
 # received a copy of the GNU Lesser General Public License along with
-# hpp-dlr-ipa.  If not, see
+# hpp-ipa.  If not, see
 # <http://www.gnu.org/licenses/>.
 
 # Requires at least CMake 2.6 to configure the package.
@@ -21,8 +21,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/python.cmake)
 
-SET(PROJECT_NAME hpp-dlr-ipa)
-SET(PROJECT_DESCRIPTION "Data specific to dlr ipa robot")
+SET(PROJECT_NAME hpp-ipa)
+SET(PROJECT_DESCRIPTION "Data specific to Fraunhofer ipa robot")
 SET(PROJECT_URL "")
 
 SETUP_PROJECT()
@@ -82,19 +82,19 @@ INSTALL(FILES
   urdf/ipa325_ur10_empty.urdf
   urdf/ipa325_ur10_gripper.urdf
   urdf/ipa325_ur10_screwdriver.urdf
-DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-dlr-ipa/urdf
+DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-ipa/urdf
 )
 INSTALL(FILES
   srdf/door.srdf
   srdf/ipa325_ur10_empty.srdf
   srdf/ipa325_ur10_gripper.srdf
   srdf/ipa325_ur10_screwdriver.srdf
- DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-dlr-ipa/srdf
+ DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-ipa/srdf
 )
 
 INSTALL (FILES
   package.xml
- DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-dlr-ipa
+ DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-ipa
 )
 
 # Copy mesh files to ROS package
@@ -108,7 +108,7 @@ SET (MESHES
 
 install (FILES
   ${MESHES}
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-dlr-ipa/meshes )
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hpp-ipa/meshes )
 
  message("install data root dir: ${CMAKE_INSTALL_DATAROOTDIR}")
  message("catkin pkg share destination: ${CATKIN_PACKAGE_SHARE_DESTINATION}")
